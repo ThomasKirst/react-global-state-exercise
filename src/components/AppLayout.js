@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import styled from 'styled-components';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -6,26 +8,39 @@ import MainContent from './MainContent';
 import Navigation from './Navigation';
 
 export default function AppLayout() {
+  const [counts, setCounts] = useState({
+    cats: 0,
+    dogs: 0,
+    sheep: 0,
+    dragons: 0,
+    goldfish: 0
+  });
+
+  const changeCount = (animal, count) =>
+    setCounts({ ...counts, [animal]: count });
+
+  // Den state halten wir so tief wie möglich, so hoch wie nötig
+
   return (
     <StyledGrid>
       <StyledHeader>
-        <Header />
+        <Header counts={counts} />
       </StyledHeader>
 
       <StyledAside>
-        <Sidebar />
+        <Sidebar counts={counts} />
       </StyledAside>
 
       <StyledMain>
-        <MainContent />
+        <MainContent counts={counts} onChangeCount={changeCount} />
       </StyledMain>
 
       <StyledNav>
-        <Navigation />
+        <Navigation counts={counts} />
       </StyledNav>
 
       <StyledFooter>
-        <Footer />
+        <Footer dragons={counts.dragons} />
       </StyledFooter>
     </StyledGrid>
   );

@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Counter({ name }) {
-  const [count, setCount] = useState(0);
+export default function Counter({ name, count, onChangeCount }) {
   return (
     <Container>
       <strong>{name}:</strong>
       <button
         onClick={() => {
-          setCount(count - 1);
+          onChangeCount(name, count - 1);
         }}
       >
         <span role="img" aria-label="Subtract one from count">
@@ -18,7 +16,7 @@ export default function Counter({ name }) {
       <span>{count}</span>
       <button
         onClick={() => {
-          setCount(count + 1);
+          onChangeCount(name, count + 1);
         }}
       >
         <span role="img" aria-label="Add one to count">
@@ -36,6 +34,7 @@ const Container = styled.div`
 
   > :first-child {
     min-width: 8ch;
+    text-transform: capitalize;
   }
 
   > span {

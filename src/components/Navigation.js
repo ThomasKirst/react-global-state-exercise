@@ -1,46 +1,21 @@
 import styled from 'styled-components';
 
-export default function Navigation() {
+export default function Navigation({ counts }) {
   return (
     <Container>
       <span>Learn more</span>
       <List>
-        <li>
-          <a
-            href="https://google.com/search?q=Cats"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Cats
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://google.com/search?q=Dogs"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Dogs
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://google.com/search?q=Sheep"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Sheep
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://google.com/search?q=Dragons"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Dragons
-          </a>
-        </li>
+        {Object.keys(counts).map((animal) => (
+          <li key={animal}>
+            <a
+              href={'https://google.com/search?q=' + animal}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {animal}
+            </a>
+          </li>
+        ))}
       </List>
     </Container>
   );
@@ -60,5 +35,6 @@ const List = styled.ul`
 
   a:any-link {
     color: #1d8382;
+    text-transform: capitalize;
   }
 `;

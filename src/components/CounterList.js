@@ -1,23 +1,38 @@
 import styled from 'styled-components';
 import Counter from './Counter';
 
-export default function CounterList() {
+/*
+{
+  cats: 2,
+  dogs: 0,
+  sheep: 0,
+  dragons: 0
+}
+==> Object.entries(counts)
+[
+  [ 'cats', 2 ],
+  [ 'dogs', 0 ],
+  [ 'sheep', 0 ],
+  [ 'dragons', 0 ]
+]
+*/
+
+export default function CounterList({ counts, onChangeCount }) {
   return (
     <>
       <h2>Counters</h2>
       <List>
-        <li>
-          <Counter name="Cats" />
-        </li>
-        <li>
-          <Counter name="Dogs" />
-        </li>
-        <li>
-          <Counter name="Sheep" />
-        </li>
-        <li>
-          <Counter name="Dragons" />
-        </li>
+        {Object.entries(counts).map(([animal, count]) => {
+          return (
+            <li>
+              <Counter
+                name={animal}
+                count={count}
+                onChangeCount={onChangeCount}
+              />
+            </li>
+          );
+        })}
       </List>
     </>
   );
