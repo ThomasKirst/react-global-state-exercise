@@ -1,6 +1,6 @@
 # Challenge: CounterApp
 
-–> [State-Recap CounterApp - CodeSandbox](https://codesandbox.io/s/state-recap-counterapp-byz9d1)
+–> Fork / Clone this repository
 
 - Start creating a global state in `AppLayout`.
 - Your global state should have the following shape
@@ -171,5 +171,4 @@ a:any-link {
 - How difficult is it now to add another counter, let´s say for **Goldfish**?
 - Bonus: Include a last counter which counts books on the sidebar using a local state variable within the `Sidebar` component.
 - You made it till here — Congratulations 🎉
-- The final app could look similar to this version now:
-  [State-Recap CounterApp Final (Variant 3) - CodeSandbox](https://codesandbox.io/s/state-recap-counterapp-final-variant-3-y7f5jc)
+- The final app could look similar to the version on the `solution` branch.
