@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import CounterList from "./CounterList";
+import styled from 'styled-components';
+import CounterList from './CounterList';
 
 const Container = styled.section`
   max-width: 75ch;
 `;
 
-export default function MainContent() {
+export default function MainContent({ counts, onChangeCount }) {
   return (
     <Container>
-      <CounterList />
+      <CounterList counts={counts} onChangeCount={onChangeCount} />
 
       <article>
         <h2>About Counters</h2>
